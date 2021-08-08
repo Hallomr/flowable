@@ -1,0 +1,41 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: flowable
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      # \u914D\u7F6E\u95F4\u9694\u591A\u4E45\u8FDB\u884C\u4E00\u6B21\u68C0\u6D4B\u9700\u8981\u5173\u95ED\u7684\u7A7A\u95F2\u8FDE\u63A5\uFF0C\u5355\u4F4D\u662F\u6BEB\u79D2
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat # wall \u82E5\u5F00\u542F wall\uFF0C\u4F1A\u628A if \u4E2D\u7684 and \u5224\u65AD\u4E3A\u6CE8\u5165\u8FDB\u884C\u62E6\u622A
+      # \u901A\u8FC7connectProperties\u5C5E\u6027\u6765\u6253\u5F00mergeSql\u529F\u80FD\uFF1B\u6162SQL\u8BB0\u5F55
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    url: jdbc:mysql://47.106.146.227:3306/flowable?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+
+flowable:
+  # 关闭异步，不关闭历史数据的插入就是异步的，会在同一个事物里面，无法回滚
+  async-executor-activate: false
+
+
+
+
