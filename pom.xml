@@ -38,7 +38,7 @@
             <version>6.6.0</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-ui-modeler-rest</artifactId>
             <version>6.6.0</version>
@@ -52,7 +52,7 @@
             <groupId>org.flowable</groupId>
             <artifactId>flowable-ui-modeler-conf</artifactId>
             <version>6.6.0</version>
-        </dependency>
+        </dependency>-->
 
         <!--flowable 使用slf4j作为内部日志框架-->
         <dependency>
@@ -91,6 +91,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.20</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.74</version>
         </dependency>
     </dependencies>
 
